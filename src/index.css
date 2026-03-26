@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    
+    /* Gold/Majestic Theme Colors */
+    --background: #0a0a0a;
+    --foreground: #f5f5dc;
+    
+    --card: #1a1a1a;
+    --card-foreground: #f5f5dc;
+    
+    --popover: #1a1a1a;
+    --popover-foreground: #f5f5dc;
+    
+    --primary: #d4af37;
+    --primary-foreground: #0a0a0a;
+    
+    --secondary: #2a2a2a;
+    --secondary-foreground: #f5f5dc;
+    
+    --muted: #2a2a2a;
+    --muted-foreground: #a0a0a0;
+    
+    --accent: #c9a227;
+    --accent-foreground: #0a0a0a;
+    
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    
+    --border: #3a3a3a;
+    --input: #2a2a2a;
+    --ring: #d4af37;
+    
+    --chart-1: #d4af37;
+    --chart-2: #c9a227;
+    --chart-3: #b8941f;
+    --chart-4: #a88317;
+    --chart-5: #97720f;
+    
+    --sidebar: #1a1a1a;
+    --sidebar-foreground: #f5f5dc;
+    --sidebar-primary: #d4af37;
+    --sidebar-primary-foreground: #0a0a0a;
+    --sidebar-accent: #2a2a2a;
+    --sidebar-accent-foreground: #f5f5dc;
+    --sidebar-border: #3a3a3a;
+    --sidebar-ring: #d4af37;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+}
+
+/* Custom Gold Theme Styles */
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #c9a227 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #c9a227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(135deg, #d4af37, #c9a227, #d4af37) border-box;
+}
+
+.gold-shadow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3),
+              0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+  color: #0a0a0a;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.gold-button:hover {
+  background: linear-gradient(135deg, #e4bf47 0%, #d9b237 100%);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+.majestic-card {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid #3a3a3a;
+  position: relative;
+  overflow: hidden;
+}
+
+.majestic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.ornate-border {
+  position: relative;
+  padding: 2rem;
+}
+
+.ornate-border::before,
+.ornate-border::after {
+  content: '❧';
+  position: absolute;
+  color: #d4af37;
+  font-size: 1.5rem;
+}
+
+.ornate-border::before {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.ornate-border::after {
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #c9a227);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e4bf47, #d9b237);
+}
+
+/* Reading Mode Styles */
+.reading-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: var(--line-height, 1.8);
+  text-align: var(--text-align, justify);
+}
+
+/* Tooltip Animation */
+.tooltip-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tooltip-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Highlight Search Results */
+.search-highlight {
+  background-color: rgba(212, 175, 55, 0.4);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Word Hover Effect */
+.word-hover {
+  cursor: pointer;
+  border-bottom: 1px dotted #d4af37;
+  transition: all 0.2s;
+}
+
+.word-hover:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Sonner Toast Styling - Gold title, White description */
+[data-sonner-toast] [data-title] {
+  color: #d4af37 !important;
+  font-weight: 600;
+}
+
+[data-sonner-toast] [data-description] {
+  color: #ffffff !important;
+}
+
+[data-sonner-toast] {
+  border-color: #d4af37 !important;
+}
+
+[data-sonner-toast] [data-icon] {
+  color: #d4af37 !important;
+}
+
+[data-sonner-toast] [data-icon] svg {
+  color: #d4af37 !important;
+  stroke: #d4af37 !important;
+}
